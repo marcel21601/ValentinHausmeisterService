@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – Valentins Hausmeisterdienste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1C3A2B;--forest-mid:#2D5540;--forest-light:#3D7055;--sage:#7BAE91;--cream:#F5F0E8;--warm-white:#FAFAF6;--gold:#C8A96E;--dark:#111810;--text:#2A2A2A;--muted:#6B7280}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,58,43,.97);backdrop-filter:blur(12px)}
+  .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .nav-logo-mark{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--forest);flex-shrink:0}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:#fff;line-height:1.2}
+  .nav-logo-text span{display:block;font-weight:300;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,.8);font-size:14px;transition:color .2s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{padding:10px 24px;background:var(--gold);color:var(--forest)!important;border-radius:50px;font-weight:500!important}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#fff;text-decoration:none}
+  .mobile-menu a:hover{color:var(--gold)}
+  .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:28px}
+
+  .page-hero{padding:140px 60px 60px;background:var(--forest)}
+  .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,.4)}
+  .breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
+  .breadcrumb a:hover,.breadcrumb span{color:var(--gold)}
+  .page-hero h1{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:#fff;margin-bottom:12px}
+  .page-hero p{font-size:15px;color:rgba(255,255,255,.5)}
+
+  .legal-content{max-width:780px;margin:0 auto;padding:80px 60px}
+  .legal-content h2{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--forest);margin:40px 0 16px;padding-top:8px;border-top:2px solid var(--gold);display:inline-block}
+  .legal-content h2:first-child{margin-top:0;border-top:none}
+  .legal-content h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--forest);margin:24px 0 10px}
+  .legal-content p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:14px}
+  .legal-content a{color:var(--forest-light);text-decoration:none}
+  .legal-content a:hover{color:var(--gold)}
+  .info-box{background:var(--cream);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:24px 28px;margin:24px 0}
+  .info-box p{margin:0;font-size:15px;color:var(--text)}
+  .info-box strong{color:var(--forest)}
+
+  footer{background:var(--dark);padding:48px 60px 32px}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px;flex-wrap:wrap;gap:20px}
+  .footer-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff}
+  .footer-logo span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:300}
+  .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+  .footer-links a{text-decoration:none;font-size:13px;color:rgba(255,255,255,.4);transition:color .2s}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.25)}
+
+  @media(max-width:1024px){nav{padding:16px 32px}.nav-links{display:none}.hamburger{display:flex}.page-hero,.legal-content,footer{padding-left:32px;padding-right:32px}}
+  @media(max-width:640px){nav{padding:14px 20px}.page-hero,.legal-content,footer{padding-left:20px;padding-right:20px}.page-hero{padding-top:110px}}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="valentins-hausmeisterdienste.html">Home</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="dienstleistungen.html">Dienstleistungen</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<nav>
+  <a href="valentins-hausmeisterdienste.html" class="nav-logo">
+    <div class="nav-logo-mark">V</div>
+    <div class="nav-logo-text">Valentins<span>Hausmeisterdienste</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="dienstleistungen.html">Leistungen</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Anfrage senden</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="valentins-hausmeisterdienste.html">Home</a>
+    <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Impressum</span>
+  </div>
+  <h1>Impressum</h1>
+  <p>Angaben gemäß § 5 TMG</p>
+</div>
+
+<div class="legal-content">
+  <div class="info-box">
+    <p><strong>Valentins Hausmeisterdienste</strong><br>
+    Inhaber: Valentin Wotschel<br>
+    Baarstr. 34, 78073 Bad Dürrheim/Biesingen<br>
+    Telefon: <a href="tel:+4915175013942">0151 – 750 139 42</a><br>
+    E-Mail: <a href="mailto:info@valentins-hausmeisterdienste.de">info@valentins-hausmeisterdienste.de</a></p>
+  </div>
+
+  <h2>Vertreten durch</h2>
+  <p>Valentin Wotschel</p>
+
+  <h2>Zuständige Kammer</h2>
+  <p>Handwerkskammer Konstanz</p>
+
+  <h2>Zugelassen für</h2>
+  <p>Deutschland</p>
+
+  <h2>Berufsrechtliche Regelungen</h2>
+  <p>Es gelten folgende berufsrechtliche Regelungen: Nr. 3 der Anlage A der Handwerksordnung.</p>
+  <p>Regelungen einsehbar unter: <a href="http://www.gesetze-im-internet.de/hwo/index.html" target="_blank">www.gesetze-im-internet.de/hwo/index.html</a></p>
+
+  <h2>Berufshaftpflichtversicherung</h2>
+  <h3>Abgeschlossen bei:</h3>
+  <p>LVM Versicherung<br>Kolde-Ring 21, 48126 Münster</p>
+  <h3>Geltungsbereich des Versicherungsschutzes:</h3>
+  <p>Betriebshaftpflichtversicherung pauschal für Personen- und Sachschäden: 1.000.000 €<br>
+  Für Vermögensschäden: 1.000.000 €</p>
+
+  <h2>Hinweise zur Website</h2>
+  <h3>Urheberrechtliche Hinweise</h3>
+  <p>Bildquellen: www.pixabay.com, eigene Bilder und Logos.</p>
+
+  <h2>Information gemäß § 36 VSBG</h2>
+  <p>Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz) erklärt der Betreiber dieser Website: Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Valentins Hausmeisterdienste<span>Bad Dürrheim &amp; Umgebung</span></div>
+    <ul class="footer-links">
+      <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="dienstleistungen.html">Leistungen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Valentins Hausmeisterdienste. Alle Rechte vorbehalten.</span>
+    <span>Bad Dürrheim, Deutschland</span>
+  </div>
+</footer>
+<script>
+  function openMobile(){document.getElementById('mobileMenu').classList.add('open')}
+  function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

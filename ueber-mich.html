@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über mich – Valentins Hausmeisterdienste</title>
+<meta name="description" content="Valentin Wotschel – Inhaber & Handwerker aus Leidenschaft. Junges Familienunternehmen aus Bad Dürrheim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:#1C3A2B;--forest-mid:#2D5540;--forest-light:#3D7055;
+    --sage:#7BAE91;--cream:#F5F0E8;--warm-white:#FAFAF6;
+    --gold:#C8A96E;--dark:#111810;--text:#2A2A2A;--muted:#6B7280;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,58,43,.97);backdrop-filter:blur(12px)}
+  .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .nav-logo-mark{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--forest);flex-shrink:0}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:#fff;line-height:1.2}
+  .nav-logo-text span{display:block;font-weight:300;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,.8);font-size:14px;font-weight:400;letter-spacing:.04em;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-cta{padding:10px 24px;background:var(--gold);color:var(--forest)!important;border-radius:50px;font-weight:500!important;transition:transform .2s,box-shadow .2s!important}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,169,110,.4)!important}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+
+  /* PAGE HERO */
+  .page-hero{padding:160px 60px 80px;background:var(--forest);position:relative;overflow:hidden}
+  .page-hero::after{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,169,110,.08),transparent 70%);pointer-events:none}
+  .page-hero .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,.4)}
+  .page-hero .breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+  .page-hero .breadcrumb a:hover{color:var(--gold)}
+  .page-hero .breadcrumb span{color:var(--gold)}
+  .page-hero h1{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:16px}
+  .page-hero h1 em{font-style:italic;color:var(--gold);font-weight:300}
+  .page-hero p{font-size:17px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.7}
+
+  /* SHARED */
+  section{padding:80px 60px}
+  .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest-light);font-weight:500;margin-bottom:20px}
+  .section-label::before{content:'';width:28px;height:2px;background:var(--gold)}
+  h2.section-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.15;color:var(--forest);margin-bottom:16px}
+  h2.section-title em{font-style:italic;font-weight:300;color:var(--forest-light)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* ABOUT INTRO */
+  .about-intro{background:var(--warm-white);display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+  .person-card{position:sticky;top:100px}
+  .person-img{border-radius:20px;overflow:hidden;aspect-ratio:3/4;margin-bottom:24px}
+  .person-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .person-name{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--forest);margin-bottom:4px}
+  .person-role{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+  .person-contact{display:flex;flex-direction:column;gap:10px}
+  .contact-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text)}
+  .contact-item svg{flex-shrink:0;color:var(--gold)}
+  .contact-item a{color:var(--forest);text-decoration:none}
+  .contact-item a:hover{color:var(--gold)}
+
+  .about-text p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:20px}
+  .about-text p strong{color:var(--forest)}
+  .motto-block{background:var(--forest);border-radius:16px;padding:32px;margin:32px 0}
+  .motto-block blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:24px;color:var(--gold);line-height:1.4}
+  .motto-block cite{display:block;margin-top:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);font-style:normal}
+  .values-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+  .value-item{background:var(--cream);border-radius:12px;padding:24px}
+  .value-item h4{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:6px}
+  .value-item p{font-size:13px;color:var(--muted);line-height:1.6}
+
+  /* GALLERY */
+  .gallery-section{background:var(--cream);padding:80px 60px}
+  .filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+  .filter-btn{padding:10px 22px;border-radius:50px;border:1.5px solid transparent;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:.2s;font-weight:500}
+  .filter-btn.active,.filter-btn:hover{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .filter-btn:not(.active){background:#fff;color:var(--text);border-color:#E0DDD6}
+  .masonry{columns:3;column-gap:12px}
+  .masonry-item{break-inside:avoid;margin-bottom:12px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+  .masonry-item img{width:100%;display:block;transition:transform .4s}
+  .masonry-item:hover img{transform:scale(1.04)}
+  .masonry-item .img-overlay{position:absolute;inset:0;background:rgba(28,58,43,0);transition:.3s;display:flex;align-items:flex-end;padding:16px}
+  .masonry-item:hover .img-overlay{background:rgba(28,58,43,.4)}
+  .img-tag{background:rgba(28,58,43,.85);backdrop-filter:blur(8px);color:#fff;font-size:11px;padding:5px 12px;border-radius:50px;opacity:0;transform:translateY(6px);transition:.3s}
+  .masonry-item:hover .img-tag{opacity:1;transform:translateY(0)}
+
+  /* CTA BAND */
+  .cta-band{background:var(--gold);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+  .cta-band h3{font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--forest)}
+  .cta-band p{color:rgba(28,58,43,.7);margin-top:6px;font-size:15px}
+  .btn-dark{padding:16px 36px;background:var(--forest);color:#fff;text-decoration:none;border-radius:50px;font-weight:500;font-size:15px;transition:transform .2s,box-shadow .2s;display:inline-block;flex-shrink:0}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(28,58,43,.3)}
+
+  /* FOOTER */
+  footer{background:var(--dark);padding:48px 60px 32px}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px;flex-wrap:wrap;gap:20px}
+  .footer-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff}
+  .footer-logo span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:300}
+  .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+  .footer-links a{text-decoration:none;font-size:13px;color:rgba(255,255,255,.4);transition:color .2s}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.25)}
+
+  /* MOBILE */
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#fff;text-decoration:none}
+  .mobile-menu a:hover{color:var(--gold)}
+  .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:28px}
+
+  @media(max-width:1024px){
+    nav{padding:16px 32px}
+    .nav-links{display:none}
+    .hamburger{display:flex}
+    .page-hero,.about-intro,.gallery-section,.cta-band,footer{padding:80px 32px}
+    .page-hero{padding-top:130px}
+    .about-intro{grid-template-columns:1fr;gap:48px}
+    .person-card{position:static}
+    .masonry{columns:2}
+  }
+  @media(max-width:640px){
+    nav{padding:14px 20px}
+    .page-hero,.gallery-section,.cta-band,footer{padding:60px 20px}
+    .page-hero{padding-top:110px}
+    .about-intro{padding:60px 20px}
+    .values-grid{grid-template-columns:1fr}
+    .masonry{columns:1}
+    .cta-band{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="valentins-hausmeisterdienste.html" onclick="closeMobile()">Home</a>
+  <a href="ueber-mich.html" onclick="closeMobile()">Über mich</a>
+  <a href="dienstleistungen.html" onclick="closeMobile()">Dienstleistungen</a>
+  <a href="kontakt.html" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<nav>
+  <a href="valentins-hausmeisterdienste.html" class="nav-logo">
+    <div class="nav-logo-mark">V</div>
+    <div class="nav-logo-text">Valentins<span>Hausmeisterdienste</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+    <li><a href="ueber-mich.html" class="active">Über mich</a></li>
+    <li><a href="dienstleistungen.html">Leistungen</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Anfrage senden</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="valentins-hausmeisterdienste.html">Home</a>
+    <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Über mich</span>
+  </div>
+  <h1>Valentin<br><em>Wotschel</em></h1>
+  <p>Inhaber &amp; Handwerker aus Leidenschaft – persönlich, bodenständig, zuverlässig.</p>
+</div>
+
+<section class="about-intro reveal">
+  <div class="person-card">
+    <div class="person-img">
+      <img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/05/cropped-IMG-20210427-WA0027.jpg"
+        alt="Valentin Wotschel"
+        onerror="this.parentElement.style.background='#c8d8c0';this.style.display='none'">
+    </div>
+    <div class="person-name">Valentin Wotschel</div>
+    <div class="person-role">Inhaber · Hausmeister · Handwerker</div>
+    <div class="person-contact">
+      <div class="contact-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+        Baarstr. 34, 78073 Bad Dürrheim/Biesingen
+      </div>
+      <div class="contact-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.11 6.73a2 2 0 011.99-2.19h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <a href="tel:+4915175013942">0151 – 750 139 42</a>
+      </div>
+      <div class="contact-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <a href="mailto:info@valentins-hausmeisterdienste.de">info@valentins-hausmeisterdienste.de</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <p class="section-label">Meine Geschichte</p>
+    <h2 class="section-title">Wir realisieren<br><em>Ihre Ideen.</em></h2>
+    <p>Wir sind ein junges und zuverlässiges Familienunternehmen. Mit kreativen Ideen und persönlicher Beratung nehmen wir uns die Zeit für unsere Kunden.</p>
+    <p>Meine Familie und ich sind in der Region ansässig und haben es uns zur Aufgabe gemacht, Bad Dürrheim und Umgebung mit unserer Arbeit und unserem Know-how zu verschönern und zu bereichern.</p>
+    <p>Wir bieten ein umfangreiches Sortiment an Dienstleistungen – unsere Projekte stechen mit Modernität und Einfallsreichtum heraus. Von der einfachen Gartenpflege bis hin zu komplexen Handwerkerarbeiten sind wir <strong>Ihr zuverlässiger Partner</strong> für alles rund ums Haus.</p>
+    <div class="motto-block">
+      <blockquote>„Geht nicht, gibt's nicht!"</blockquote>
+      <cite>Unser Leitspruch – als persönliche Herausforderung, um die individuellen Wünsche unserer Kunden zu realisieren.</cite>
+    </div>
+    <p><em>Ich freue mich auf Ihre Anfrage.<br>– Ihr Valentin Wotschel</em></p>
+    <div class="values-grid">
+      <div class="value-item">
+        <h4>Persönlich &amp; familiär</h4>
+        <p>Kein Konzern – ein Mensch. Sie erreichen immer direkt Valentin.</p>
+      </div>
+      <div class="value-item">
+        <h4>Lokal &amp; regional</h4>
+        <p>Verwurzelt in Bad Dürrheim – schnell vor Ort, wenn Sie uns brauchen.</p>
+      </div>
+      <div class="value-item">
+        <h4>Fair &amp; transparent</h4>
+        <p>Klare Angebote ohne versteckte Kosten. Was wir sagen, halten wir.</p>
+      </div>
+      <div class="value-item">
+        <h4>Kreativ &amp; flexibel</h4>
+        <p>Auch ausgefallene Ideen setzen wir gerne um – Geht nicht, gibt's nicht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section reveal">
+  <p class="section-label">Einblicke</p>
+  <h2 class="section-title">Unsere <em>Arbeiten</em></h2>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">Alle</button>
+    <button class="filter-btn" onclick="filterGallery('garten',this)">Gartenpflege</button>
+    <button class="filter-btn" onclick="filterGallery('trockenbau',this)">Trockenbau</button>
+    <button class="filter-btn" onclick="filterGallery('reinigung',this)">Reinigung</button>
+  </div>
+  <div class="masonry" id="gallery">
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210627-WA0011-225x300.jpg" alt="Gartenpflege"><div class="img-overlay"><span class="img-tag">Gartenpflege</span></div></div>
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210627-WA0014-300x225.jpg" alt="Grünschnitt"><div class="img-overlay"><span class="img-tag">Grünschnitt</span></div></div>
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210427-WA0012-1-225x300.jpg" alt="Baumschnitt"><div class="img-overlay"><span class="img-tag">Baumschnitt</span></div></div>
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210627-WA0006-225x300.jpg" alt="Hecke"><div class="img-overlay"><span class="img-tag">Heckenschnitt</span></div></div>
+    <div class="masonry-item" data-cat="reinigung"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210523-WA0019.jpg" alt="Reinigung"><div class="img-overlay"><span class="img-tag">Reinigung</span></div></div>
+    <div class="masonry-item" data-cat="trockenbau"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/07/IMG-20210528-WA0011-300x225.jpg" alt="Trockenbau"><div class="img-overlay"><span class="img-tag">Trockenbau</span></div></div>
+    <div class="masonry-item" data-cat="trockenbau"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/07/IMG-20210701-WA0013-1-300x225.jpg" alt="Umbau"><div class="img-overlay"><span class="img-tag">Umbau</span></div></div>
+    <div class="masonry-item" data-cat="trockenbau"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/07/IMG-20210701-WA0012-1-300x225.jpg" alt="Ausbau"><div class="img-overlay"><span class="img-tag">Ausbau</span></div></div>
+    <div class="masonry-item" data-cat="reinigung"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210523-WA0021-1-300x225.jpg" alt="Gebäudereinigung"><div class="img-overlay"><span class="img-tag">Gebäudereinigung</span></div></div>
+    <div class="masonry-item" data-cat="reinigung"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210523-WA0022-1-300x225.jpg" alt="Fensterreinigung"><div class="img-overlay"><span class="img-tag">Fensterreinigung</span></div></div>
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210627-WA0003-225x300.jpg" alt="Garten"><div class="img-overlay"><span class="img-tag">Gartenpflege</span></div></div>
+    <div class="masonry-item" data-cat="garten"><img src="https://valentins-hausmeisterdienste.de/wp-content/uploads/2021/06/IMG-20210627-WA0013-300x225.jpg" alt="Grünpflege"><div class="img-overlay"><span class="img-tag">Grünpflege</span></div></div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <div>
+    <h3>Bereit für Ihre Anfrage?</h3>
+    <p>Schreiben Sie mir – ich melde mich schnell und unkompliziert.</p>
+  </div>
+  <a href="kontakt.html" class="btn-dark">Jetzt Kontakt aufnehmen →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Valentins Hausmeisterdienste<span>Bad Dürrheim &amp; Umgebung</span></div>
+    <ul class="footer-links">
+      <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="dienstleistungen.html">Leistungen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Valentins Hausmeisterdienste. Alle Rechte vorbehalten.</span>
+    <span>Bad Dürrheim, Deutschland</span>
+  </div>
+</footer>
+
+<script>
+  function openMobile(){document.getElementById('mobileMenu').classList.add('open')}
+  function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+  const reveals=document.querySelectorAll('.reveal');
+  new IntersectionObserver((e)=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('visible')),{threshold:.1}).observe&&reveals.forEach(r=>new IntersectionObserver((e)=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('visible')),{threshold:.1}).observe(r));
+  function filterGallery(cat,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.masonry-item').forEach(item=>{
+      item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+    });
+  }
+  // trigger reveals
+  setTimeout(()=>{reveals.forEach(r=>{const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})},{threshold:.1});o.observe(r)})},100);
+</script>
+</body>
+</html>

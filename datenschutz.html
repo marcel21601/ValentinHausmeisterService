@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz – Valentins Hausmeisterdienste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1C3A2B;--forest-mid:#2D5540;--forest-light:#3D7055;--sage:#7BAE91;--cream:#F5F0E8;--warm-white:#FAFAF6;--gold:#C8A96E;--dark:#111810;--text:#2A2A2A;--muted:#6B7280}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,58,43,.97);backdrop-filter:blur(12px)}
+  .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .nav-logo-mark{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--forest);flex-shrink:0}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:#fff;line-height:1.2}
+  .nav-logo-text span{display:block;font-weight:300;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,.8);font-size:14px;transition:color .2s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{padding:10px 24px;background:var(--gold);color:var(--forest)!important;border-radius:50px;font-weight:500!important}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#fff;text-decoration:none}
+  .mobile-menu a:hover{color:var(--gold)}
+  .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:28px}
+
+  .page-hero{padding:140px 60px 60px;background:var(--forest)}
+  .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,.4)}
+  .breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
+  .breadcrumb a:hover,.breadcrumb span{color:var(--gold)}
+  .page-hero h1{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:#fff;margin-bottom:12px}
+  .page-hero p{font-size:15px;color:rgba(255,255,255,.5)}
+
+  .toc{background:var(--cream);border-radius:14px;padding:28px 32px;margin:48px auto 0;max-width:780px}
+  .toc h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:16px}
+  .toc ol{padding-left:20px;display:flex;flex-direction:column;gap:8px}
+  .toc ol li a{color:var(--forest-light);text-decoration:none;font-size:14px}
+  .toc ol li a:hover{color:var(--gold)}
+
+  .legal-content{max-width:780px;margin:0 auto;padding:48px 60px 80px}
+  .legal-content h2{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--forest);margin:44px 0 16px;padding-top:16px;border-top:1px solid #E8E4DC}
+  .legal-content h2:first-child{margin-top:0;border-top:none}
+  .legal-content h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--forest-light);margin:24px 0 10px}
+  .legal-content p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:14px}
+  .legal-content ul{padding-left:20px;margin-bottom:14px;display:flex;flex-direction:column;gap:6px}
+  .legal-content ul li{font-size:15px;color:var(--muted);line-height:1.65}
+  .legal-content a{color:var(--forest-light);text-decoration:none}
+  .legal-content a:hover{color:var(--gold)}
+  .highlight-box{background:rgba(28,58,43,.05);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 24px;margin:20px 0}
+  .highlight-box p{margin:0;font-size:14px;color:var(--text)}
+
+  footer{background:var(--dark);padding:48px 60px 32px}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px;flex-wrap:wrap;gap:20px}
+  .footer-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff}
+  .footer-logo span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:300}
+  .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+  .footer-links a{text-decoration:none;font-size:13px;color:rgba(255,255,255,.4);transition:color .2s}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.25)}
+
+  @media(max-width:1024px){nav{padding:16px 32px}.nav-links{display:none}.hamburger{display:flex}.page-hero,.legal-content,.toc,footer{padding-left:32px;padding-right:32px}}
+  @media(max-width:640px){nav{padding:14px 20px}.page-hero,.legal-content,.toc,footer{padding-left:20px;padding-right:20px}.page-hero{padding-top:110px}}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="valentins-hausmeisterdienste.html">Home</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="dienstleistungen.html">Dienstleistungen</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<nav>
+  <a href="valentins-hausmeisterdienste.html" class="nav-logo">
+    <div class="nav-logo-mark">V</div>
+    <div class="nav-logo-text">Valentins<span>Hausmeisterdienste</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="dienstleistungen.html">Leistungen</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Anfrage senden</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="valentins-hausmeisterdienste.html">Home</a>
+    <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Datenschutz</span>
+  </div>
+  <h1>Datenschutz&shy;erklärung</h1>
+  <p>Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO</p>
+</div>
+
+<div class="toc" style="padding-left:60px;padding-right:60px;max-width:100%;border-radius:0">
+  <div style="max-width:780px;margin:0 auto">
+    <h3>Inhalt</h3>
+    <ol>
+      <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+      <li><a href="#erhebung">Erhebung und Speicherung personenbezogener Daten</a></li>
+      <li><a href="#kontaktformular">Kontaktformular</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#rechte">Ihre Rechte als betroffene Person</a></li>
+      <li><a href="#widerruf">Widerspruchsrecht</a></li>
+      <li><a href="#aktualitaet">Aktualität und Änderung dieser Datenschutzerklärung</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="legal-content">
+  <h2 id="verantwortlicher">1. Verantwortlicher</h2>
+  <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:</p>
+  <div class="highlight-box">
+    <p><strong>Valentin Wotschel</strong><br>
+    Valentins Hausmeisterdienste<br>
+    Baarstr. 34, 78073 Bad Dürrheim/Biesingen<br>
+    Telefon: <a href="tel:+4915175013942">0151 – 750 139 42</a><br>
+    E-Mail: <a href="mailto:info@valentins-hausmeisterdienste.de">info@valentins-hausmeisterdienste.de</a></p>
+  </div>
+
+  <h2 id="erhebung">2. Erhebung und Speicherung personenbezogener Daten</h2>
+  <h3>Beim Besuch der Website</h3>
+  <p>Beim Aufrufen unserer Website werden durch den Browser auf Ihrem Endgerät automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:</p>
+  <ul>
+    <li>IP-Adresse des anfragenden Rechners</li>
+    <li>Datum und Uhrzeit des Zugriffs</li>
+    <li>Name und URL der abgerufenen Datei</li>
+    <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+    <li>Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners</li>
+  </ul>
+  <p>Die genannten Daten werden durch uns zu folgenden Zwecken verarbeitet: Gewährleistung eines reibungslosen Verbindungsaufbaus der Website, Gewährleistung einer komfortablen Nutzung unserer Website, Auswertung der Systemsicherheit und -stabilität sowie zu weiteren administrativen Zwecken.</p>
+  <p>Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO. Unser berechtigtes Interesse folgt aus oben aufgelisteten Zwecken zur Datenerhebung.</p>
+
+  <h2 id="kontaktformular">3. Kontaktformular</h2>
+  <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+  <p>Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt somit ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können diese Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.</p>
+  <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+
+  <h2 id="cookies">4. Cookies</h2>
+  <p>Unsere Website verwendet sogenannte Cookies. Dabei handelt es sich um kleine Textdateien, die mit Hilfe des Browsers auf Ihrem Endgerät abgelegt werden. Sie richten keinen Schaden an.</p>
+  <p>Wir nutzen Cookies dazu, unser Angebot nutzerfreundlich zu gestalten. Einige Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.</p>
+  <p>Wenn Sie dies nicht wünschen, können Sie Ihren Browser so einrichten, dass er Sie über das Setzen von Cookies informiert und Sie dies nur im Einzelfall erlauben. Bei der Deaktivierung von Cookies kann die Funktionalität unserer Website eingeschränkt sein.</p>
+
+  <h2 id="rechte">5. Ihre Rechte als betroffene Person</h2>
+  <p>Sie haben das Recht:</p>
+  <ul>
+    <li>gemäß Art. 15 DSGVO Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen</li>
+    <li>gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen</li>
+    <li>gemäß Art. 17 DSGVO die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen</li>
+    <li>gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen</li>
+    <li>gemäß Art. 20 DSGVO Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten</li>
+    <li>gemäß Art. 77 DSGVO sich bei einer Aufsichtsbehörde zu beschweren</li>
+  </ul>
+
+  <h2 id="widerruf">6. Widerspruchsrecht</h2>
+  <p>Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten einzulegen, soweit dafür Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben.</p>
+  <p>Möchten Sie von Ihrem Widerspruchsrecht Gebrauch machen, genügt eine E-Mail an: <a href="mailto:info@valentins-hausmeisterdienste.de">info@valentins-hausmeisterdienste.de</a></p>
+
+  <h2 id="aktualitaet">7. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+  <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juni 2026. Durch die Weiterentwicklung unserer Website und Angebote darüber oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Valentins Hausmeisterdienste<span>Bad Dürrheim &amp; Umgebung</span></div>
+    <ul class="footer-links">
+      <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="dienstleistungen.html">Leistungen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Valentins Hausmeisterdienste. Alle Rechte vorbehalten.</span>
+    <span>Bad Dürrheim, Deutschland</span>
+  </div>
+</footer>
+<script>
+  function openMobile(){document.getElementById('mobileMenu').classList.add('open')}
+  function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

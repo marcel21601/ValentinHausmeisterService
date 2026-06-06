@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Valentins Hausmeisterdienste</title>
+<meta name="description" content="Kontaktieren Sie Valentins Hausmeisterdienste in Bad Dürrheim. Telefon, E-Mail oder Kontaktformular.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1C3A2B;--forest-mid:#2D5540;--forest-light:#3D7055;--sage:#7BAE91;--cream:#F5F0E8;--warm-white:#FAFAF6;--gold:#C8A96E;--dark:#111810;--text:#2A2A2A;--muted:#6B7280}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,58,43,.97);backdrop-filter:blur(12px)}
+  .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .nav-logo-mark{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--forest);flex-shrink:0}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:#fff;line-height:1.2}
+  .nav-logo-text span{display:block;font-weight:300;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,.8);font-size:14px;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .nav-cta{padding:10px 24px;background:var(--gold);color:var(--forest)!important;border-radius:50px;font-weight:500!important}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#fff;text-decoration:none}
+  .mobile-menu a:hover{color:var(--gold)}
+  .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;color:#fff;font-size:28px}
+
+  .page-hero{padding:160px 60px 80px;background:var(--forest);position:relative;overflow:hidden}
+  .page-hero::after{content:'';position:absolute;right:-100px;bottom:-100px;width:450px;height:450px;background:radial-gradient(circle,rgba(200,169,110,.07),transparent 70%);pointer-events:none}
+  .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,.4)}
+  .breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
+  .breadcrumb a:hover,.breadcrumb span{color:var(--gold)}
+  .page-hero h1{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,64px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:16px;position:relative;z-index:1}
+  .page-hero h1 em{font-style:italic;color:var(--gold);font-weight:300}
+  .page-hero p{font-size:17px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.7;position:relative;z-index:1}
+
+  .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest-light);font-weight:500;margin-bottom:20px}
+  .section-label::before{content:'';width:28px;height:2px;background:var(--gold)}
+  h2.section-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.15;color:var(--forest);margin-bottom:16px}
+  h2.section-title em{font-style:italic;font-weight:300;color:var(--forest-light)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* CONTACT SECTION */
+  .contact-section{padding:80px 60px;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .contact-info p{color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:40px}
+  .contact-cards{display:flex;flex-direction:column;gap:16px}
+  .contact-card{background:#fff;border:1px solid #E8E4DC;border-radius:14px;padding:24px;display:flex;align-items:center;gap:16px;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
+  .contact-card:hover{border-color:var(--gold);transform:translateX(4px)}
+  .contact-card-icon{width:48px;height:48px;background:var(--forest);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .contact-card-text strong{display:block;font-size:15px;color:var(--forest);margin-bottom:3px}
+  .contact-card-text span{font-size:14px;color:var(--muted)}
+  .contact-card-text a{color:var(--forest-light);text-decoration:none}
+
+  .map-placeholder{margin-top:32px;border-radius:14px;overflow:hidden;height:220px;background:var(--cream);border:1px solid #E8E4DC;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+  .map-placeholder svg{opacity:.4}
+  .map-placeholder p{font-size:13px;color:var(--muted)}
+  .map-placeholder a{font-size:13px;color:var(--forest-light);text-decoration:none;font-weight:500}
+
+  /* FORM */
+  .form-card{background:var(--forest);border-radius:24px;padding:48px}
+  .form-card h3{font-family:'Fraunces',serif;font-size:26px;color:#fff;margin-bottom:8px}
+  .form-card > p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+  .form-group label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500}
+  .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 18px;color:#fff;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .2s,background .2s;resize:none}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.25)}
+  .form-group select option{background:var(--forest);color:#fff}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
+  .form-group textarea{min-height:130px}
+  .form-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px}
+  .form-check input[type="checkbox"]{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex-shrink:0}
+  .form-check label{font-size:13px;color:rgba(255,255,255,.45);line-height:1.5}
+  .btn-submit{width:100%;padding:16px;background:var(--gold);color:var(--forest);border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;letter-spacing:.04em;transition:transform .2s,box-shadow .2s}
+  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,169,110,.35)}
+
+  /* SUCCESS */
+  .success-msg{display:none;background:rgba(123,174,145,.15);border:1px solid var(--sage);border-radius:12px;padding:20px 24px;margin-top:16px;color:var(--sage);font-size:14px;text-align:center}
+  .success-msg.show{display:block}
+
+  /* FAQ */
+  .faq-section{background:var(--cream);padding:80px 60px}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+  .faq-item{background:#fff;border-radius:14px;padding:28px;border:1px solid #E8E4DC}
+  .faq-item h4{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px}
+  .faq-item p{font-size:14px;color:var(--muted);line-height:1.65}
+
+  footer{background:var(--dark);padding:48px 60px 32px}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px;flex-wrap:wrap;gap:20px}
+  .footer-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff}
+  .footer-logo span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:300}
+  .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+  .footer-links a{text-decoration:none;font-size:13px;color:rgba(255,255,255,.4);transition:color .2s}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.25)}
+
+  @media(max-width:1024px){
+    nav{padding:16px 32px}.nav-links{display:none}.hamburger{display:flex}
+    .page-hero,.contact-section,.faq-section,footer{padding:80px 32px}
+    .page-hero{padding-top:130px}
+    .contact-section{grid-template-columns:1fr;gap:48px}
+    .faq-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    nav{padding:14px 20px}
+    .page-hero,.contact-section,.faq-section,footer{padding:60px 20px}
+    .page-hero{padding-top:110px}
+    .form-card{padding:28px 20px}
+    .form-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="valentins-hausmeisterdienste.html">Home</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="dienstleistungen.html">Dienstleistungen</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<nav>
+  <a href="valentins-hausmeisterdienste.html" class="nav-logo">
+    <div class="nav-logo-mark">V</div>
+    <div class="nav-logo-text">Valentins<span>Hausmeisterdienste</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="dienstleistungen.html">Leistungen</a></li>
+    <li><a href="kontakt.html" class="active nav-cta">Anfrage senden</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="valentins-hausmeisterdienste.html">Home</a>
+    <svg width="12" height="12" fill="none" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Kontakt</span>
+  </div>
+  <h1>Schreiben<br>Sie <em>mir.</em></h1>
+  <p>Ich freue mich auf Ihre Anfrage – persönlich, unkompliziert und schnell.</p>
+</div>
+
+<section class="contact-section reveal">
+  <div class="contact-info">
+    <p class="section-label">Kontaktdaten</p>
+    <h2 class="section-title">So erreichen<br>Sie <em>Valentin.</em></h2>
+    <p>Nutzen Sie einfach das Formular oder kontaktieren Sie mich direkt – ich antworte schnell und persönlich.</p>
+    <div class="contact-cards">
+      <a href="tel:+4915175013942" class="contact-card">
+        <div class="contact-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.11 6.73a2 2 0 011.99-2.19h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="contact-card-text"><strong>Telefon</strong><span>0151 – 750 139 42</span></div>
+      </a>
+      <a href="mailto:info@valentins-hausmeisterdienste.de" class="contact-card">
+        <div class="contact-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#C8A96E" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="contact-card-text"><strong>E-Mail</strong><span>info@valentins-hausmeisterdienste.de</span></div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#C8A96E" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#C8A96E" stroke-width="1.5"/></svg></div>
+        <div class="contact-card-text"><strong>Adresse</strong><span>Baarstr. 34, 78073 Bad Dürrheim/Biesingen</span></div>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <svg width="36" height="36" fill="none" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#1C3A2B" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#1C3A2B" stroke-width="1.5"/></svg>
+      <p>Bad Dürrheim / Biesingen</p>
+      <a href="https://maps.google.com/?q=Baarstr.+34+78073+Bad+Dürrheim" target="_blank">In Google Maps öffnen →</a>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h3>Anfrage senden</h3>
+    <p>Ich melde mich in der Regel innerhalb von 24 Stunden bei Ihnen.</p>
+    <div class="form-row">
+      <div class="form-group"><label>Vorname *</label><input type="text" placeholder="Max" required></div>
+      <div class="form-group"><label>Nachname *</label><input type="text" placeholder="Mustermann" required></div>
+    </div>
+    <div class="form-group"><label>Telefon *</label><input type="tel" placeholder="+49 151 …" required></div>
+    <div class="form-group"><label>E-Mail *</label><input type="email" placeholder="ihre@email.de" required></div>
+    <div class="form-group">
+      <label>Gewünschte Leistung</label>
+      <select>
+        <option value="" disabled selected>Bitte wählen…</option>
+        <option>Grünanlagenpflege</option>
+        <option>Hausmeisterservice</option>
+        <option>Gebäudereinigung</option>
+        <option>Kleinreparaturen</option>
+        <option>Trockenbau / Umbau</option>
+        <option>Sonstiges</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Ihre Nachricht *</label><textarea placeholder="Beschreiben Sie Ihr Anliegen – je mehr Details, desto besser können wir Ihnen helfen." required></textarea></div>
+    <div class="form-check">
+      <input type="checkbox" id="dsgvo" required>
+      <label for="dsgvo">Ich willige ein, dass diese Website meine übermittelten Informationen speichert, sodass meine Anfrage beantwortet werden kann. (Datenschutzerklärung)</label>
+    </div>
+    <button class="btn-submit" onclick="handleSubmit(event)">Anfrage absenden →</button>
+    <div class="success-msg" id="successMsg">✓ Vielen Dank! Ihre Nachricht wurde gesendet. Ich melde mich bald bei Ihnen.</div>
+  </div>
+</section>
+
+<section class="faq-section reveal">
+  <p class="section-label">Häufige Fragen</p>
+  <h2 class="section-title">Gut zu <em>wissen.</em></h2>
+  <div class="faq-grid">
+    <div class="faq-item"><h4>In welchem Gebiet sind Sie tätig?</h4><p>Wir sind in Bad Dürrheim und der gesamten Umgebung tätig, inkl. Villingen-Schwenningen, Donaueschingen und umliegende Gemeinden.</p></div>
+    <div class="faq-item"><h4>Wie schnell reagieren Sie auf Anfragen?</h4><p>In der Regel melden wir uns innerhalb von 24 Stunden. Bei dringenden Fällen gerne auch direkt per Telefon.</p></div>
+    <div class="faq-item"><h4>Geben Sie auch Festpreisangebote?</h4><p>Ja, nach einem kurzen Gespräch oder Termin vor Ort erstellen wir ein transparentes Angebot ohne versteckte Kosten.</p></div>
+    <div class="faq-item"><h4>Sind Sie versichert?</h4><p>Ja. Wir verfügen über eine Betriebshaftpflichtversicherung für Personen- und Sachschäden bis 1.000.000€.</p></div>
+    <div class="faq-item"><h4>Erledigen Sie auch Einzelaufträge?</h4><p>Selbstverständlich. Ob einmaliger Auftrag oder regelmäßige Betreuung – wir passen uns Ihren Bedürfnissen an.</p></div>
+    <div class="faq-item"><h4>Welche Zahlungsarten akzeptieren Sie?</h4><p>Überweisung nach Rechnungsstellung. Sprechen Sie uns für individuelle Vereinbarungen gerne an.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Valentins Hausmeisterdienste<span>Bad Dürrheim &amp; Umgebung</span></div>
+    <ul class="footer-links">
+      <li><a href="valentins-hausmeisterdienste.html">Home</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="dienstleistungen.html">Leistungen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Valentins Hausmeisterdienste. Alle Rechte vorbehalten.</span>
+    <span>Bad Dürrheim, Deutschland</span>
+  </div>
+</footer>
+
+<script>
+  function openMobile(){document.getElementById('mobileMenu').classList.add('open')}
+  function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+  setTimeout(()=>{document.querySelectorAll('.reveal').forEach(r=>{new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})},{threshold:.1}).observe(r)})},100);
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('successMsg').classList.add('show');
+    setTimeout(()=>document.getElementById('successMsg').classList.remove('show'),5000);
+  }
+</script>
+</body>
+</html>
